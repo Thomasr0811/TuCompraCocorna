@@ -119,22 +119,6 @@ article img {
   padding: 0px 20px;
 }
 
-.container-aside aside button {
-  margin-top: 20px;
-  margin-left: 20px;
-  padding: 10px 50px;
-  font-size: 16px;
-  background: #46a2fd;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 6px;
-}
-
-.container-aside aside button:hover {
-  opacity: 0.9;
-}
-
 @media screen and (max-width: 1220px) {
   .container-content {
     max-width: 1000px;
