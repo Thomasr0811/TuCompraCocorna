@@ -1,6 +1,10 @@
-button {
-  margin-top: 20px;
-  margin-left: 20px;
+.card__button {
+  text-align: center;
+}
+.card__button button {
+  /*margin-top: 20px;*/
+  /*margin-left: 20px;*/
+  /*margin: 0 auto;*/
   padding: 10px 50px;
   font-size: 16px;
   background: #46a2fd;
