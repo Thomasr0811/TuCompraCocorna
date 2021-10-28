@@ -1,3 +1,17 @@
+<?php
+$servername = "localhost";
+$database = "cocorna";
+$username = "root";
+$password = "";
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+$registros=mysqli_query($conn,"SELECT * FROM tiendas  WHERE id=".$_GET['id']."") or 
+die("problemas en el select:".mysqli_error($conexion));
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +21,7 @@
 
   <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="../css/index.css" />
 
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
@@ -18,7 +32,7 @@
   <!--Header - menu-->
   <header>
     <div class="header-content">
-      <a href="index.html" class="logo">
+      <a href="index.php" class="logo">
         <b>Tu compra <span>Cocorna</span></b>
       </a>
       <div class="menu" id="show-menu">
@@ -38,6 +52,7 @@
       <i class="fas fa-bars"></i>
     </div>
   </header>
+  
   <div id="openModal" class="modalDialog">
     <div>
       <div class="">
@@ -71,12 +86,21 @@
   <!--Portada-->
 
   <div class="container-all" id="move-content">
-    <div class="article-container-cover imagen-mayoria">
+    <div class="article-container-cover">
       <div class="container-info-cover">
-        <h1>La mayoria</h1>
+        <?php
+          while ($reg=mysqli_fetch_array($registros)) {
+            
+
+        ?>
+        <h1>
+        <?php
+          echo $reg['nombre'];
+         
+        ?>
+        </h1>
         <p>
-          Bienvenido a La mayoria un restaurante unico y con platos
-          exquisitos, listos para brindarte el mejor de los servicios.
+        <?php echo $reg['comentarios'];?>
         </p>
       </div>
     </div>
@@ -85,17 +109,20 @@
       <article>
         <h1>Informacion general</h1>
 
-        <p>somos un restaurante con la comida mas tipica y deliciosa de el municipio</p>
+        <p>Somo un negocio con un excelente servicio al cliente</p>
 
 
-        <h1>nuestros medios de contacto y hubicacion</h1>
+        <h1>Nuestros medios de contacto y ubicacion</h1>
 
-        <p>hubicado en la drc 22#22</p>
-        <p>deliciosos prodcutos.</p>
-        <p>telefono: 2321342342</p>
-        <p>sopitas: claro que si</p>
-        <p>variedad de licor en nuestra seccion de</p>
 
+        <p><strong>Telefono: </strong><?php echo $reg['telefono'];?></p>
+        <p><Strong>Direccion: </Strong><?php echo $reg['direccion'];?></p>
+
+        <?php
+           } 
+        ?>
+
+        
         <h1>imagenes de nuestros platillos</h1>
 
         <img src="./img/articulos/comidasrapidas1.jpg" alt="" />
