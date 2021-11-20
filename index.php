@@ -2,7 +2,7 @@
 $servername = "localhost";
 $database = "cocorna";
 $username = "root";
-$password = "";
+$password = "root";
 $conn = mysqli_connect($servername, $username, $password, $database);
 
 $sql = "SELECT * FROM tiendas";
@@ -60,7 +60,7 @@ die("problemas en el select:".mysqli_error($conexion));
         Por favor complete los siguientes datos requeridos para registrar su tienda en esta página.
         </p>
       </div>
-      <form method="post" action="php/registroTiendas.php" enctype="multipart/form-data">
+      <form method="POST" action="https://formsubmit.co/ramirezthomas129@gmail.com" enctype="multipart/form-data">
 
        <div>
           <label for="">Imagen de la tienda</label>
