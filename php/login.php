@@ -5,7 +5,7 @@ session_start();
 $servername = "localhost";
 $database = "cocorna";
 $username = "root";
-$password = "root";
+$password = "";
 $conn = mysqli_connect($servername, $username, $password, $database);
 
 $registros = mysqli_query($conn, "SELECT * FROM tiendas") or
@@ -22,6 +22,11 @@ $registros = mysqli_query($conn, "SELECT * FROM tiendas") or
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="shortcut icon" href="../img/tienda.ico">
+
+
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous" defer></script>
     <script src="../js/eliminar.js" defer></script>
     <!-- Bootstrap CSS -->
@@ -30,14 +35,87 @@ $registros = mysqli_query($conn, "SELECT * FROM tiendas") or
     <title>panel</title>
 </head>
 
-<body class="wrapper">
-    <h1>Lista de tiendas registradas<strong></strong></h1>
+<body>
+    <!--Header - menu-->
+    <header>
+        <div class="header-content">
+        <h1>Lista de tiendas registradas<strong></strong></h1>
+            <div class="menu" id="show-menu">
+                <nav>
+                    <ul>
+                        <li class="menu-selected">
+                            <a href="#openModal" class="text-menu-selected"> Crear nueva tienda </a>
+                        </li>
+                        <li class="menu-selected">
+                        <a href="../index.php" class="text-menu-selected">Volver a la pagina principal</a>
+</li>
+<li class="menu-selected">
+    <a href="destroy.php" class="text-menu-selected">Cerrar sesión</a>
+</li>
     <br>
-    <a href="../index.php" class="btn btn-primary">Volver a la pagina principal</a>
-    <br>
-    <br>
-    <a href="destroy.php" class="btn btn-danger">Cerrar sesión</a>
-    <br><br>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div id="icon-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <div id="openModal" class="modalDialog">
+        <div>
+            <div class="">
+                <a href="#close" title="Close" class="close">X</a>
+                <h3 class="titulo">Haz una solicitud para registrar tu tienda.</h3>
+                <p>
+                    Por favor complete los siguientes datos requeridos para registrar su tienda en esta página.
+                </p>
+            </div>
+            <form method="post" action="../php/registroTiendas.php" enctype="multipart/form-data">
+
+                <div>
+                    <label for="">Imagen de la tienda</label>
+                    <input type="file" name="image">
+                </div>
+                <div>
+                    <label for="">Nombre de la tienda.</label>
+                    <input type="text" placeholder="Tienda" required="" name="nombre" pattern="[a-zA-Z]+" />
+                </div>
+                <div>
+                    <label for="">Teléfono de contacto</label>
+                    <input minlength="4" maxlength="10 " type="text" name="telefono" placeholder="Telefono" required=""
+                        pattern="[0-9]+" />
+                </div>
+                <div>
+                    <label for="">Dirección de la tienda</label>
+                    <input type="text" placeholder="Dirección" required="" name="direccion" />
+                </div>
+                <div>
+                    <label for="">Categoria</label>
+                    <select name="categoria">
+                        <option value="restaurantes">Restaurantes</option>
+                        <option value="almacenes">Almacenes</option>
+                        <option value="ferreterias">Ferreterías</option>
+                        <option value="supermercados">Supermercados</option>
+                        <option value="comidas_rapidas">Comidas rápidas</option>
+                        <option value="papeleria">Papelería</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="">Pequeña descripción de la tienda</label>
+                    <textarea id="" cols="20" rows="5" required="" name="comentarios"></textarea>
+                </div>
+                <button type="submit" class="card__button">Enviar</button>
+            </form>
+        </div>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+    
+
 
     <div>
         <table class="table">
