@@ -2,7 +2,7 @@
 $servername = "localhost";
 $database = "cocorna";
 $username = "root";
-$password = "root";
+$password = "";
 $conn = mysqli_connect($servername, $username, $password, $database);
 
 $sql = "SELECT * FROM tiendas";
@@ -23,6 +23,11 @@ die("problemas en el select:".mysqli_error($conexion));
   <link rel="stylesheet" href="./css/index.css" />
   <link rel="shortcut icon" href="./img/tienda.ico">
   <link rel="stylesheet" href="admin.html">
+  
+
+
+
+
 
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
@@ -39,7 +44,7 @@ die("problemas en el select:".mysqli_error($conexion));
         <nav>
           <ul>
             <li class="menu-selected">
-              <a href="#openModal" class="text-menu-selected"> Registra tu tienda </a>
+              <a href="#openModal" class="text-menu-selected"> Haz una solicitud para registrar tu tienda </a>
             </li>
           </ul>
         </nav>
@@ -57,7 +62,7 @@ die("problemas en el select:".mysqli_error($conexion));
         <a href="#close" title="Close" class="close">X</a>
         <h3 class="titulo">Haz una solicitud para registrar tu tienda.</h3>
         <p>
-        Por favor complete los siguientes datos requeridos para registrar su tienda en esta página.
+        Por favor complete los siguientes datos requeridos para solicitar el registro de  su tienda en esta página, el formulario enviara un correo electronico al administrador automaticamente que sera revisado, si su tienda cumple con los requisitos y no incumple las normas  su tienda se registrara en 3 dias habiles.
         </p>
       </div>
       <form method="POST" action="https://formsubmit.co/ramirezthomas129@gmail.com" enctype="multipart/form-data">
@@ -68,7 +73,7 @@ die("problemas en el select:".mysqli_error($conexion));
        </div>
         <div>
           <label for="">Nombre de la tienda.</label>
-          <input type="text" placeholder="Tienda" required="" name="nombre" pattern="[a-zA-Z]+"/>
+          <input type="text" placeholder="Tienda" required="" name="nombre"/>
         </div>
         <div>
           <label for="">Teléfono de contacto</label>
@@ -128,8 +133,16 @@ el municipio de Cocorná.
         <label for="comidas_rapidas">Comidas rápidas</label>
         <label for="papeleria">Papelerías</label>
       </div>
-
       <hr>
+<br>
+<div class="container mt5">
+      <input type="text"  id="buscador">
+      <button id="boton">Buscar</button>
+
+
+      </div>
+<br>
+<hr>
 
       <div class="posts">
         
@@ -137,8 +150,8 @@ el municipio de Cocorná.
           <div class="ctn-img">
             <img src="img/articulos/restaurante1.jpg" alt="" />
           </div>
-          <div class="centrar">
-          <h2 class="titulo">La Mayoría</h2>
+          <div class="centrar" >
+          <h2 class="titulo" id="resultado">La Mayoría</h2>
           <h3><span class="subtitulo">Ubicada cerca del parque principal</span></h3>
           <a href="./libreria/mayoria.html" class="card__button"><button>Ver más</button></a>
           </div>
@@ -296,6 +309,7 @@ el municipio de Cocorná.
     </div>
   </div>
   </div>
+<script src="./js/buscador.js"></script>
 </body>
 
 </html>
