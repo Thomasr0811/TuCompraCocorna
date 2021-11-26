@@ -1,7 +1,12 @@
+/*Secciones*/
 @import "./articulos.css";
 @import "./blog.css";
 @import "./modal.css";
 @import "./principal.css";
+@import "./busqueda.css";
+
+
+/*Componentes*/
 @import "./Componentes/titulo.css";
 @import "./Componentes/subtitulo.css";
 @import "./Componentes/button.css";

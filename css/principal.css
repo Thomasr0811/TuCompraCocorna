@@ -11,6 +11,9 @@
 body {
   background: rgb(209, 236, 231);
 }
+ol, ul {
+  list-style: none;
+}
 
 header {
   position: fixed;
@@ -20,7 +23,7 @@ header {
   height: 80px;
   background: #fff;
   box-shadow: 0 4px 25px -22px black;
-  z-index: 2;
+  z-index: 111;
 }
 
 .header-content {

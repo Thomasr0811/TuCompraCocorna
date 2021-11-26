@@ -12,7 +12,7 @@ $comentarios = $_POST['comentarios'];
 $servername = "localhost";
 $database = "cocorna";
 $username = "root";
-$password = "";
+$password = "root";
 $conn = mysqli_connect($servername, $username, $password, $database);   
 
 $sql = "UPDATE tiendas SET nombre='$nombre',telefono='$telefono',direccion='$direccion',categoria='$categoria',comentarios='$comentarios' WHERE id='$id'";

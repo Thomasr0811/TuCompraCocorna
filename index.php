@@ -2,7 +2,7 @@
 $servername = "localhost";
 $database = "cocorna";
 $username = "root";
-$password = "";
+$password = "root";
 $conn = mysqli_connect($servername, $username, $password, $database);
 
 $sql = "SELECT * FROM tiendas";
@@ -49,11 +49,30 @@ die("problemas en el select:".mysqli_error($conexion));
           </ul>
         </nav>
       </div>
-    </div>
+      <div id="ctn-icon-search">
+                <i class="fas fa-search" id="icon-search"></i>
+      </div>
+</div>
     <div id="icon-menu">
       <i class="fas fa-bars"></i>
     </div>
   </header>
+  <div id="ctn-bars-search">
+        <input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
+  </div>
+  <ul id="box-search">
+        <li><a href="./libreria/mayoria.html"><i class="fas fa-search"></i>La Mayoría</a></li>
+        <li><a href="./libreria/casa-mexicana.html"><i class="fas fa-search"></i>Casa Mexicana</a></li>
+        <li><a href="articulo.html"><i class="fas fa-search"></i>Almacen Ropa Moda</a></li>
+        <li><a href="articulo.html"><i class="fas fa-search"></i>La ferretería</a></li>
+        <li><a href="articulo.html"><i class="fas fa-search"></i>Tenis Sport</a></li>
+        <li><a href="articulo.html"><i class="fas fa-search"></i>Supermercado buenos días</a></li>
+        <li><a href="articulo.html"><i class="fas fa-search"></i>Papelería</a></li>
+        <li><a href="articulo.html"><i class="fas fa-search"></i>Las delicias</a></li>
+    </ul>  
+    <div id="cover-ctn-search">
+
+    </div>
 
   <!-- inicio modal formulario -->
   <div id="openModal" class="modalDialog">
@@ -134,15 +153,6 @@ el municipio de Cocorná.
         <label for="papeleria">Papelerías</label>
       </div>
       <hr>
-<br>
-<div class="container mt5">
-      <input type="text"  id="buscador">
-      <button id="boton">Buscar</button>
-
-
-      </div>
-<br>
-<hr>
 
       <div class="posts">
         
@@ -175,7 +185,7 @@ el municipio de Cocorná.
           <div class="centrar">
           <h2 class="titulo">Almacén ropa moda</h2>
           <h3><span class="subtitulo">Almacén con toda variedad de productos desde...hasta...</span></h3>
-          <a href="./libreria/almacen1.html"  class= "card__button"><button>Ver más</button></a>
+          <button>Ver más</button></a>
 </div>
         </div>
 
